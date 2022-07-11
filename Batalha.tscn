@@ -1,0 +1,238 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://MobileRPG Resources/Images/Dungeon.png" type="Texture" id=1]
+[ext_resource path="res://Rato.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MobileRPG Resources/Images/Mobile RPG Mockup.png" type="Texture" id=3]
+[ext_resource path="res://Batalha.gd" type="Script" id=4]
+[ext_resource path="res://MobileRPG Resources/Music and Sounds/Menu Move.wav" type="AudioStream" id=5]
+[ext_resource path="res://MobileRPG Resources/Music and Sounds/Menu Select.wav" type="AudioStream" id=6]
+[ext_resource path="res://MobileRPG Resources/default_theme.tres" type="Theme" id=8]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/desc/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Ratinho comum." ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "desc"
+length = 0.8
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("UI/desc/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "A", "Ap", "Ape", "Apen", "Apena", "Apenas", "Apenas u", "Apenas um", "Apenas um r", "Apenas um ra", "Apenas um rat", "Apenas um rati", "Apenas um ratin", "Apenas um ratinh", "Apenas um ratinho", "Apenas um ratinho." ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.00651422,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6 )
+}
+
+[node name="Batalha" type="Node"]
+script = ExtResource( 4 )
+prox = "res://Batalha2.tscn"
+
+[node name="Dungeon" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="mockup" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.352941 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Rato" parent="." instance=ExtResource( 2 )]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Espada" type="Button" parent="UI"]
+margin_left = 9.0
+margin_top = 73.0
+margin_right = 41.0
+margin_bottom = 87.0
+theme = ExtResource( 8 )
+text = "Espada"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Curar" type="Button" parent="UI"]
+margin_left = 49.0
+margin_top = 73.0
+margin_right = 81.0
+margin_bottom = 87.0
+theme = ExtResource( 8 )
+text = "Curar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bloquear" type="Button" parent="UI"]
+margin_left = 9.0
+margin_top = 89.0
+margin_right = 42.0
+margin_bottom = 103.0
+theme = ExtResource( 8 )
+text = "Block"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="status" type="Panel" parent="UI"]
+margin_left = 3.0
+margin_top = 52.0
+margin_right = 87.0
+margin_bottom = 70.0
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/status"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 45.0
+margin_bottom = 14.0
+text = "70HP
+30MP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="desc" type="Panel" parent="UI"]
+margin_top = 136.0
+margin_right = 90.0
+margin_bottom = 160.0
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/desc"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 59.0
+margin_bottom = 7.0
+theme = ExtResource( 8 )
+text = "Ratinho comum."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Descrição" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/desc = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.0
+
+[node name="acabou" type="Timer" parent="."]
+
+[node name="som" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="atacou" from="." to="Rato" method="_on_Batalha_atacou"]
+[connection signal="bloqueou" from="." to="Rato" method="_on_Batalha_bloqueou"]
+[connection signal="curou" from="." to="Rato" method="_on_Batalha_curou"]
+[connection signal="morreu" from="." to="Rato" method="_on_Batalha_morreu"]
+[connection signal="ganhou" from="Rato" to="." method="_on_Rato_ganhou"]
+[connection signal="respondeu" from="Rato" to="." method="_on_Rato_respondeu"]
+[connection signal="button_up" from="UI/Espada" to="." method="_on_Espada_button_up"]
+[connection signal="button_up" from="UI/Curar" to="." method="_on_Curar_button_up"]
+[connection signal="button_up" from="UI/Bloquear" to="." method="_on_Bloquear_button_up"]
+[connection signal="timeout" from="acabou" to="." method="_on_acabou_timeout"]
+
+[editable path="Rato"]
